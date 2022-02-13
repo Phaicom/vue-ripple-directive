@@ -43,6 +43,9 @@
   "unpkg": "./dist/vue-ripple-directive.umd.js",
   "jsdelivr": "./dist/vue-ripple-directive.umd.js",
   "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs",
     "build:library": "vite build",
     "prepublish": "pnpm run build",
     "publish:library": "npm publish --access public",
@@ -72,6 +75,7 @@
     "prettier": "^2.5.1",
     "typescript": "^4.5.5",
     "vite": "^2.8.1",
+    "vitepress": "^0.22.0",
     "vue-tsc": "^0.31.3"
   },
   "engines": {

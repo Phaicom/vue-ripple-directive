@@ -1,5 +1,7 @@
-const Ripple: any = {
-  bind(el: HTMLElement, binding: any) {
+import type { Directive, DirectiveBinding } from 'vue'
+
+export const Ripple: Directive = {
+  created(el: HTMLElement, binding: DirectiveBinding) {
     // Default values.
     const props = {
       event: 'mousedown',
@@ -9,7 +11,7 @@ const Ripple: any = {
     setProps(Object.keys(binding.modifiers), props)
 
     el.addEventListener(props.event, (event: Event) => {
-      rippler(event, el, binding.value)
+      rippler(event as MouseEvent, el)
     })
 
     const bg = binding.value || Ripple.color || 'rgba(0, 0, 0, 0.35)'
@@ -138,5 +140,3 @@ function setProps(modifiers: any, props: any) {
       props.transition = item
   })
 }
-
-export default Ripple
