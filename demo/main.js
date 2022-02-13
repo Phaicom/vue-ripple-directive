@@ -1,11 +1,10 @@
 import Vue from 'vue'
+import Ripple from '../src/index.ts'
 import App from './App.vue'
-import Ripple from '../src/ripple'
 
-Vue.directive('ripple', Ripple);
+Vue.directive('ripple', Ripple)
 
 new Vue({
-el: '#app',
-render: h => h(App)
-});
-
+  el: '#app',
+  render: h => h(App),
+})

@@ -32,16 +32,16 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/ripple.umd.js",
-  "module": "./dist/ripple.es.js",
+  "main": "./dist/vue-ripple-directive.umd.js",
+  "module": "./dist/vue-ripple-directive.es.js",
   "exports": {
     ".": {
-      "import": "./dist/ripple.es.js",
-      "require": "./dist/ripple.umd.js"
+      "import": "./dist/vue-ripple-directive.es.js",
+      "require": "./dist/vue-ripple-directive.umd.js"
     }
   },
-  "unpkg": "./dist/ripple.umd.js",
-  "jsdelivr": "./dist/ripple.umd.js",
+  "unpkg": "./dist/vue-ripple-directive.umd.js",
+  "jsdelivr": "./dist/vue-ripple-directive.umd.js",
   "scripts": {
     "build:library": "vite build",
     "prepublish": "pnpm run build",
@@ -51,9 +51,9 @@
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm"
-
   },
   "dependencies": {
+    "vite-dts": "^1.0.4",
     "vue": "^3.2.31"
   },
   "devDependencies": {
@@ -71,7 +71,8 @@
     "pnpm": "^6.30.1",
     "prettier": "^2.5.1",
     "typescript": "^4.5.5",
-    "vite": "^2.8.1"
+    "vite": "^2.8.1",
+    "vue-tsc": "^0.31.3"
   },
   "engines": {
     "node": ">=16.0.0"
