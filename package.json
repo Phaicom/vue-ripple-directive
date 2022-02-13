@@ -1,11 +1,10 @@
 {
-  "name": "vue-ripple-directive",
-  "version": "2.0.1",
+  "name": "@phaicom/vue-ripple-directive",
+  "version": "3.0.1",
   "description": "Vue Material Ripple Effect Directive",
-  "main": "src/ripple.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PygmySlowLoris/vue-ripple-directive"
+    "url": "https://github.com/Phaicom/vue-ripple-directive"
   },
   "keywords": [
     "vue",
@@ -22,32 +21,59 @@
   },
   "contributors": [
     "Guido Ceraso <guidoceraso@gmail.com> (https://github.com/hazzo)",
-    "Eduardo Marcos <edujugon@gmail.com> (https://github.com/Edujugon)"
+    "Eduardo Marcos <edujugon@gmail.com> (https://github.com/Edujugon)",
+    "Reawpai Chunsoi <reawpai.chunsoi@gmail.com> (https://github.com/Phaicom)"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PygmySlowLoris/vue-ripple-directive/issues"
+    "url": "https://github.com/Phaicom/vue-ripple-directive/issues"
   },
-  "homepage": "https://github.com/PygmySlowLoris/vue-ripple-directive#readme",
+  "homepage": "https://github.com/Phaicom/vue-ripple-directive#readme",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/ripple.umd.js",
+  "module": "./dist/ripple.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ripple.es.js",
+      "require": "./dist/ripple.umd.js"
+    }
+  },
+  "unpkg": "./dist/ripple.umd.js",
+  "jsdelivr": "./dist/ripple.umd.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "prepublish": "npm run build"
+    "build:library": "vite build",
+    "prepublish": "pnpm run build",
+    "publish:library": "npm publish --access public",
+    "lint": "eslint '**/*.{js,ts,vue,json}'",
+    "lint:fix": "pnpm lint --fix",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "prepare": "husky install",
+    "preinstall": "npx only-allow pnpm"
+
   },
   "dependencies": {
-    "vue": "^2.2.1"
+    "vue": "^3.2.31"
   },
   "devDependencies": {
-    "babel-core": "^6.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-preset-latest": "^6.0.0",
-    "cross-env": "^3.0.0",
-    "css-loader": "^0.25.0",
-    "file-loader": "^0.9.0",
-    "url-loader": "^0.5.8",
-    "vue-loader": "^11.1.4",
-    "vue-template-compiler": "^2.2.1",
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^3.1.11"
+    "@antfu/eslint-config": "^0.16.1",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@types/node": "^17.0.17",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/compiler-sfc": "^3.2.31",
+    "eslint": "^8.9.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-vue": "^8.4.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "pnpm": "^6.30.1",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5",
+    "vite": "^2.8.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
